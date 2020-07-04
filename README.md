@@ -34,18 +34,18 @@ Only the master client(room creator) can start the game, scene loading for other
 <h3>5. Network Simulation</h3>
 <img  alt="Network Simulation" src="./Readme%20Resources/image/network_simulation.png"> |
 
+<h3>6. Synchronization</h3>
+<img  alt="Synchronization" src="./Readme%20Resources/image/sync_options.png"> |
 
-## Without interpolation
-![Gameplay](Readme%20Resources/gif/without_interpolation.gif)
+|                 Without interpolation                                                 |    With interpola                                                              |
+| :--------------------------------------------------------------: | :--------------------------------------------------------------: |
+| ![Gameplay](Readme%20Resources/gif/without_interpolation.gif) | ![Gameplay](Readme%20Resources/gif/with_interpolation.gif) |
 
-## With interpolation
-![Gameplay](Readme%20Resources/gif/with_interpolation.gif)
+|                packet loss at 30%                                         |    packet loss at 30% + Dead Reckoning                                                           |
+| :--------------------------------------------------------------: | :--------------------------------------------------------------: |
+| ![Gameplay](Readme%20Resources/gif/network_simulation.gif) | ![Gameplay](Readme%20Resources/gif/extrapolation.gif) |
 
-## Network simulation, packet loss at 30%
-![Gameplay](Readme%20Resources/gif/network_simulation.gif)
 
-## Network simulation, packet loss at 30% + Dead Reckoning
-![Gameplay](Readme%20Resources/gif/extrapolation.gif)
 
 <h3>Controls</h3>
 
