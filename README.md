@@ -8,6 +8,12 @@
 | <img  alt="New Room" src="./Readme%20Resources/image/new_room.png"> | <img  alt="Room Info" src="./Readme%20Resources/image/in_room.png"> |
 | <img  alt="Room List" src="./Readme%20Resources/image/room_list.png"> | <img  alt="Loading" src="./Readme%20Resources/image/loading.png"> |
 
+<h3>Combat</h3>
+
+|                                                                  |                                                                  |
+| :--------------------------------------------------------------: | :--------------------------------------------------------------: |
+| ![Gameplay](Readme%20Resources/gif/combat.gif) | <img  alt="Matchmaking Options" src="./Readme%20Resources/image/respawning.png"> |
+
 
 ## Without interpolation
 ![Gameplay](Readme%20Resources/gif/without_interpolation.gif)
