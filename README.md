@@ -4,7 +4,7 @@ An online multiplayer FPS game made with Unity3D game engine and PUN (Photon Uni
 This game shows some of the techniques that are usually used to achieve:
  - Scalability,
  - Consistency and
- - To reduce the impact of the network latency and packet loss.
+ - To reduce the impact of the network latency and packet loss. <br>
 **Implemented techniques: consistency management, dead reckoning, interpolation, network culling and world division.**
 
 <h3>1. Matchmaking</h3>
