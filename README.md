@@ -1,6 +1,14 @@
 # unity3D-PUN-scalability-in-online-games
 
+Online multiplayer FPS game made with Unity3D game engine and PUN(Photon Unity Networking) package.
+Networked virtual environments can have large number of concurrent users and they usually have problems with scalablity.
+Those systems are also very sensitive about latency and packet loss in the network.
+This game shows some of techniques that are mostly use to achieve scalablity like consistency management, dead reckoning,
+interpolation, network culling and world division.
+
 <h3>Matchmaking</h3>
+Each player can create a new room or look at list of available rooms and join into one. </br>
+Only the master client(room creator) can start the game, scene loading for other players in the same room is automatically synced.
 
 |                                                                  |                                                                  |
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
@@ -33,3 +41,12 @@
 ## Network simulation, packet loss at 30% + Dead Reckoning
 ![Gameplay](Readme%20Resources/gif/extrapolation.gif)
 
+<h3>Controls</h3>
+
+|           Input          |     Action    |
+|:------------------------:|:-------------:|
+| W, A, S, D or Arrow Keys |    Movement   |
+|      Mouse Rotation      | Look Rotation |
+|        Left Click        |    Shooting   |
+|           Space          |    Running    |
+|          Escape          |   Pause Menu  |
