@@ -10,7 +10,7 @@ This game shows some of the techniques that are usually used to achieve:
 
 <h3>1. Matchmaking</h3>
 Each player has the option to create a new room or join existing one. <br>
-Only the master client (room creator) can start the game, scene loading for other players in the same room is automatically synced.
+Only the master client (room creator) can start the game, scene loading for other players in the same room is automatically synced. <br>
 <br>
 
 | <img  alt="Login" src="./Readme%20Resources/image/login.png"> | <img  alt="Matchmaking Options" src="./Readme%20Resources/image/matchmaking.png"> |
@@ -34,6 +34,9 @@ Only the master client (room creator) can start the game, scene loading for othe
 <img  alt="Player UI" src="./Readme%20Resources/image/player_ui.png">
 
 <h3>5. Network Simulation</h3>
+When turned on, this option allows the player to simulate network conditions.
+Player can add additional ping and increase packet loss chance. <br>
+<br>
 <img  alt="Network Simulation" src="./Readme%20Resources/image/network_simulation.png">
 
 <h3>6. Synchronization</h3>
