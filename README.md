@@ -14,6 +14,12 @@
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
 | ![Gameplay](Readme%20Resources/gif/combat.gif) | <img  alt="Matchmaking Options" src="./Readme%20Resources/image/respawning.png"> |
 
+<h3>Options</h3>
+
+|                                                                  |                                                                  |
+| :--------------------------------------------------------------: | :--------------------------------------------------------------: |
+| <img  alt="Pause Menu" src="./Readme%20Resources/image/pause_menu.png"> | <img  alt="Game Options" src="./Readme%20Resources/image/in_game_options.png"> |
+
 
 ## Without interpolation
 ![Gameplay](Readme%20Resources/gif/without_interpolation.gif)
