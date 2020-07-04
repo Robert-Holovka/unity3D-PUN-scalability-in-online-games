@@ -29,10 +29,11 @@ Only the master client(room creator) can start the game, scene loading for other
 | <img  alt="Pause Menu" src="./Readme%20Resources/image/pause_menu.png"> | <img  alt="Game Options" src="./Readme%20Resources/image/in_game_options.png"> |
 
 <h3>4. Player UI</h3>
-Players can turn on network simulation and add additional ping and/or increase packet loss. </br>
-
-
 <img  alt="Player UI" src="./Readme%20Resources/image/player_ui.png">
+
+<h3>5. Network Simulation</h3>
+<img  alt="Network Simulation" src="./Readme%20Resources/image/network_simulation.png"> |
+
 
 ## Without interpolation
 ![Gameplay](Readme%20Resources/gif/without_interpolation.gif)
