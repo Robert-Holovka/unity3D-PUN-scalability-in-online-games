@@ -10,9 +10,8 @@ interpolation, network culling and world division.**
 Players are separated by rooms. Each player can create a new room or join in an existing one. </br>
 Only the master client(room creator) can start the game, scene loading for other players in the same room is automatically synced.
 
-|                                                                  |                                                                  |
+|          <img  alt="Login" src="./Readme%20Resources/image/login.png">     |<img  alt="Matchmaking Options" src="./Readme%20Resources/image/matchmaking.png">      |
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
-| <img  alt="Login" src="./Readme%20Resources/image/login.png"> | <img  alt="Matchmaking Options" src="./Readme%20Resources/image/matchmaking.png"> |
 | <img  alt="New Room" src="./Readme%20Resources/image/new_room.png"> | <img  alt="Room Info" src="./Readme%20Resources/image/in_room.png"> |
 | <img  alt="Room List" src="./Readme%20Resources/image/room_list.png"> | <img  alt="Loading" src="./Readme%20Resources/image/loading.png"> |
 
@@ -45,9 +44,20 @@ Only the master client(room creator) can start the game, scene loading for other
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
 | ![Gameplay](Readme%20Resources/gif/network_simulation.gif) | ![Gameplay](Readme%20Resources/gif/extrapolation.gif) |
 
+<h3>7. Network Culling</h3>
+
+|                                                                  |                                                                  |
+| :--------------------------------------------------------------: | :--------------------------------------------------------------: |
+| <img  alt="Login" src="./Readme%20Resources/image/network_culling.png"> | <img  alt="Matchmaking Options" src="./Readme%20Resources/image/map.png"> |
 
 
-<h3>Controls</h3>
+|              Network Culling on, player2 in zone 2  |    Dynamic FOV                                                |
+| :--------------------------------------------------------------: | :--------------------------------------------------------------: |
+| ![Gameplay](Readme%20Resources/gif/network_culling.gif) | ![Gameplay](Readme%20Resources/gif/dynamic_FOV.gif) |
+
+<h3>8. Consistency Management</h3>
+
+<h3>9. Controls</h3>
 
 |           Input          |     Action    |
 |:------------------------:|:-------------:|
