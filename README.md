@@ -64,16 +64,33 @@ From the last 2 known states we can extract avatar's velocity and predict its cu
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
 | ![Without Extrapolation](Readme%20Resources/gif/network_simulation.gif) | ![With Extrapolation](Readme%20Resources/gif/extrapolation.gif) |
 
-<h3>7. Network Culling</h3>
+<h3>7. Network Culling & World Division</h3>
 
 |||
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
 | <img  alt="Network Culling" src="./Readme%20Resources/image/network_culling.png"> | <img  alt="Map" src="./Readme%20Resources/image/map.png"> |
 
 
-| Network Culling on, player2 in zone 2 | Dynamic FOV |
+Since PUN package does not allow server-side scripts, the world is divided into 16 zones in order to achieve network culling. <br>
+By default, all packages are broadcasted. <br>
+When some player turns on the network culling option he will receive only relevant data. <br>
+The player only cares about updates in the current zone and neighbour zones. <br>
+Each player has his own field of view presented by the circle on the map. <br>
+When that circle touches the border of another zone, the player will become neighbour with that zone <br>
+<br>
+Field of view represents how far players can see. <br>
+If a player has turned on the Dynamic FOV option, his field of view will shrink to the shooting range if certain conditions are met. <br>
+This will only happen if the number of incoming messages become too high. <br>
+In that particular moment, player will mark his and neighbour zones as critical and the circle (FOV) will stay shrunk until he enters some
+zone that is not on that list. <br>
+Player can be subscribed up to 4 zones (his own + 3 neighbours) <br>
+In those situations it is expected that the network will be overloaded, and by shrinking the circle player can reduce the 
+chance of becoming the neighbour with other zones. <br>
+
+
+| Player2 in zone 2, Player1 becomes neighbour with zone 2, number of incoming messages changes| Dynamic FOV, Player2 in zone 2, Player1 runs through different zones |
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
-| ![Network Culling](Readme%20Resources/gif/network_culling.gif) | ![Dynamic FOV](Readme%20Resources/gif/dynamic_FOV.gif) |
+| ![Network Culling](Readme%20Resources/gif/network_culling.gif) | ![Dynamic FOV](Readme%20Resources/gif/dynamic_fov.gif) |
 
 <h3>8. Consistency Management</h3>
 
@@ -81,7 +98,7 @@ From the last 2 known states we can extract avatar's velocity and predict its cu
 
 |           Input          |     Action    |
 |:------------------------:|:-------------:|
-| W, A, S, D or Arrow Keys |    Movement   |
+| W, A, S, D or Arrow Keys |    Movement   |T
 |      Mouse Rotation      | Look Rotation |
 |        Left Click        |    Shooting   |
 |           Space          |    Running    |
