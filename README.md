@@ -34,7 +34,7 @@ Only the master client (room creator) can start the game, scene loading for othe
 <img  alt="Player UI" src="./Readme%20Resources/image/player_ui.png">
 
 <h3>5. Network Simulation</h3>
-When turned on, this option allows the player to simulate network conditions.
+When turned on, this option allows the player to simulate network conditions. <br>
 Player can add additional ping and increase packet loss chance. <br>
 <br>
 <img  alt="Network Simulation" src="./Readme%20Resources/image/network_simulation.png">
@@ -42,11 +42,25 @@ Player can add additional ping and increase packet loss chance. <br>
 <h3>6. Synchronization</h3>
 <img  alt="Synchronization" src="./Readme%20Resources/image/sync_options.png">
 
-| Without interpolation | With interpola |
+Every player sends to the server 10 times per second a package that contains information about its position and rotation. <br>
+Server distributes that package to other players. <br>
+That amount of data is not enough to present smooth movement for the avatars of other players. <br>
+Increasing the serialization rate would fix that problem, but the server has a potential to become a bottleneck. <br>
+Interpolation is used to retain smooth movement and rotation without sending too much data. <br>
+That technique generates locally additional waypoints between last 2 known states. <br>
+
+| Movement without interpolation | Movement with interpolation |
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
 | ![Without Interpolation](Readme%20Resources/gif/without_interpolation.gif) | ![With Interpolation](Readme%20Resources/gif/with_interpolation.gif) |
 
-| packet loss at 30% | packet loss at 30% + Dead Reckoning |
+Interpolation can reduce the amount of data that is sent over the network, but it does not solve the problems caused by an unstable network. <br>
+When a package is lost or arrives lately, movement of an avatar will still look jittery. <br>
+Dead reckoning can hide those problems successfully. <br>
+Since the serialization rate in this game is 10, we can expect a new package every 100 ms. <br>
+After that amount of time passes without getting the new package, extrapolation of data will kick in. <br>
+From the last 2 known states we can extract avatar's velocity and predict its current position. <br>
+
+| Packet Loss (30%) | Packet Loss (30%) + Dead Reckoning|
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
 | ![Without Extrapolation](Readme%20Resources/gif/network_simulation.gif) | ![With Extrapolation](Readme%20Resources/gif/extrapolation.gif) |
 
