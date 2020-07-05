@@ -9,7 +9,7 @@ This game shows some of the techniques that are usually used to achieve:
 **Implemented techniques: consistency management, dead reckoning, interpolation, network culling and world division.**
 
 <h3>1. Matchmaking</h3>
-Each player has the option to create a new room or join existing one. <br>
+Every player has the option to create a new room or join existing one. <br>
 Only the master client (room creator) can start the game, scene loading for other players in the same room is automatically synced. <br>
 <br>
 
@@ -42,12 +42,12 @@ Player can add additional ping and increase packet loss chance. <br>
 <h3>6. Synchronization</h3>
 <img  alt="Synchronization" src="./Readme%20Resources/image/sync_options.png">
 
-Every player sends to the server 10 times per second a package that contains information about its position and rotation. <br>
+Each player sends to the server 10 times per second a package that contains information about his position and rotation.
 Server distributes that package to other players. <br>
 That amount of data is not enough to present smooth movement for the avatars of other players. <br>
 Increasing the serialization rate would fix that problem, but the server has a potential to become a bottleneck. <br>
 Interpolation is used to retain smooth movement and rotation without sending too much data. <br>
-That technique generates locally additional waypoints between last 2 known states. <br>
+That technique locally generates additional waypoints between last 2 known states. <br>
 
 | Movement without interpolation | Movement with interpolation |
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
@@ -60,7 +60,7 @@ Since the serialization rate in this game is 10, we can expect a new package eve
 After that amount of time passes without getting the new package, extrapolation of data will kick in. <br>
 From the last 2 known states we can extract avatar's velocity and predict its current position. <br>
 
-| Packet Loss (30%) | Packet Loss (30%) + Dead Reckoning|
+| Interpolation + Packet Loss (30%) |Interpolation + Packet Loss (30%) + Dead Reckoning|
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
 | ![Without Extrapolation](Readme%20Resources/gif/network_simulation.gif) | ![With Extrapolation](Readme%20Resources/gif/extrapolation.gif) |
 
@@ -71,26 +71,29 @@ From the last 2 known states we can extract avatar's velocity and predict its cu
 | <img  alt="Network Culling" src="./Readme%20Resources/image/network_culling.png"> | <img  alt="Map" src="./Readme%20Resources/image/map.png"> |
 
 
-Since PUN package does not allow server-side scripts, the world is divided into 16 zones in order to achieve network culling. <br>
+Since PUN package does not allow server-side scripts, the world is divided into 16 zones in order to achieve network culling. 
 By default, all packages are broadcasted. <br>
 When some player turns on the network culling option he will receive only relevant data. <br>
 The player only cares about updates in the current zone and neighbour zones. <br>
 Each player has his own field of view presented by the circle on the map. <br>
-When that circle touches the border of another zone, the player will become neighbour with that zone <br>
-<br>
+When that circle touches the border of another zone, the player will become neighbour with that zone. <br>
+
+| Player2 in zone 2, Player1 becomes neighbour with zone 2, number of incoming messages changes|
+| :--------------------------------------------------------------: |
+| ![Network Culling](Readme%20Resources/gif/network_culling.gif) |
+
 Field of view represents how far players can see. <br>
-If a player has turned on the Dynamic FOV option, his field of view will shrink to the shooting range if certain conditions are met. <br>
-This will only happen if the number of incoming messages become too high. <br>
+If a player has turned on the Dynamic FOV option, his field of view will shrink to the shooting range if certain conditions are met. 
+This will only happen if the number of incoming messages becomes too high. <br>
 In that particular moment, player will mark his and neighbour zones as critical and the circle (FOV) will stay shrunk until he enters some
 zone that is not on that list. <br>
 Player can be subscribed up to 4 zones (his own + 3 neighbours) <br>
 In those situations it is expected that the network will be overloaded, and by shrinking the circle player can reduce the 
 chance of becoming the neighbour with other zones. <br>
 
-
-| Player2 in zone 2, Player1 becomes neighbour with zone 2, number of incoming messages changes| Dynamic FOV, Player2 in zone 2, Player1 runs through different zones |
-| :--------------------------------------------------------------: | :--------------------------------------------------------------: |
-| ![Network Culling](Readme%20Resources/gif/network_culling.gif) | ![Dynamic FOV](Readme%20Resources/gif/dynamic_fov.gif) |
+| Dynamic FOV, Player2 in zone 2, Player1 runs through different zones |
+| :--------------------------------------------------------------: |
+| ![Dynamic FOV](Readme%20Resources/gif/dynamic_fov.gif) |
 
 <h3>8. Consistency Management</h3>
 
