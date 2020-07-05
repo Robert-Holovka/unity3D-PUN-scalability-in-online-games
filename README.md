@@ -97,16 +97,16 @@ chance of becoming the neighbour with other zones. <br>
 
 <h3>8. Consistency Management</h3>
 
-Players can pick up bullets in the scene. When one player picks up the bullets he is responsible to notify all other players
-about that action so they can remove that object their local copy of the game. <br>
+Players can pick up the bullets in the scene. When one player picks up the bullets he is responsible to notify all other players
+about that action so they can remove that object from their local copy of the game. <br>
 Suppose we have 2 players, both players have the same latency 100 ms. Player1 picks up the bullets, after 20 ms player2 does the same thing. <br>
-The end result of those actions will be inconsistent behavoiur because both players will pick up the same object. <br>
-Because of the latency, Player1 notification arrives too late.
+The end result of those actions will be inconsistent behavior because both players will pick up the same object. <br>
+Because of the latency, notification from Player1 arrives too late. <br>
 <br>
 In this game, when one player picks up the object he will firstly send request to the other players. <br>
-That request contains name of object and timestamp. Player then waits for responses from all other players, and if
+That request contains the name of the object and timestamp. Player will then wait for responses, and if
 all those responses are positive he will get the object. <br>
-Player with the smallest timestamp wins the object.
+Player with the smallest timestamp wins the object. <br>
 
 <h3>9. Controls</h3>
 
